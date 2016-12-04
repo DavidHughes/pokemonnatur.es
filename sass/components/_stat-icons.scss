@@ -1,0 +1,26 @@
+@mixin stat-icon($icon: "") {
+  content: $icon;
+  padding-right: 0.5em;
+  font-size: 0.75em;
+  vertical-align: middle;
+}
+
+.atk::before {
+  @include stat-icon("▲");
+}
+
+.def::before {
+  @include stat-icon("◼");
+}
+
+.spa::before {
+  @include stat-icon("♥");
+}
+
+.spdef::before {
+  @include stat-icon("★");
+}
+
+.spd::before {
+  @include stat-icon("◆");
+}

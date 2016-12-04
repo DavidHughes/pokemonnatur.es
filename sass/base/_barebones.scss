@@ -1,0 +1,16 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  color: $primary-font-color;
+  font-family: $primary-font-family;
+  font-size: $primary-font-size;
+  line-height: $default-line-height;
+  background-color: $brand-primary-bg-color;
+}
+
+td, th {
+  width: 33%;
+  padding: 0 10px;
+}

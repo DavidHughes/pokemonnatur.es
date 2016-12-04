@@ -1,0 +1,16 @@
+{
+  "name": "pokemonnatur.es",
+  "version": "1.0.0",
+  "description": "JS/CSS for https://pokemonnatur.es",
+  "main": "index.js",
+  "repository": "https://github.com/DavidHughes/pokemonnatur.es",
+  "author": "David Hughes <david.hughes125@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "build": "yarn install && gulp"
+  }
+}
