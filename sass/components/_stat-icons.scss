@@ -1,31 +1,28 @@
-@mixin stat-icon($icon) {
-  &::before {
-    content: $icon;
-    font-size: 0.75em;
-    vertical-align: middle;
-    font-family: 'Consolas';
-    display: inline-block;
-    width: 1.6em;
-    text-align: center;
-  }
+.stat::before {
+  font-size: 0.75em;
+  vertical-align: middle;
+  font-family: 'Consolas';
+  display: inline-block;
+  width: 1.6em;
+  text-align: center;
 }
 
-.atk {
-  @include stat-icon("▲");
+[data-stat=atk]::before {
+  content: "▲";
 }
 
-.def {
-  @include stat-icon("◼");
+[data-stat=def]::before {
+  content: "◼";
 }
 
-.spa {
-  @include stat-icon("♥");
+[data-stat=spa]::before {
+  content: "♥";
 }
 
-.spdef {
-  @include stat-icon("★");
+[data-stat=spdef]::before {
+  content: "★";
 }
 
-.spd {
-  @include stat-icon("◆");
+[data-stat=spd]::before {
+  content: "◆";
 }
