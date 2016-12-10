@@ -14,3 +14,4 @@ gulp.task('sass:watch', function () {
 });
 
 gulp.task('default', ['sass']);
+gulp.task('watch', ['sass:watch']);

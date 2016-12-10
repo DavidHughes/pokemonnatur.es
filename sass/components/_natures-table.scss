@@ -1,9 +1,11 @@
-/*
- * Natures Table
- */
 .natures-table {
   margin: 0 auto;
-  background-color: $brand-primary-color;
-  border-radius: 1em;
-  padding: 1em;
+}
+
+.natures-table__nature {
+  width: 30%;
+}
+
+.natures-table__stat {
+  width: 35%;
 }
