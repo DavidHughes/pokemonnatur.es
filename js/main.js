@@ -4,25 +4,50 @@
   htmlClasses.remove('no-js');
   htmlClasses.add('js');
 
-  let natureTable = document.querySelector('.natures-table');
-  let natureNameInput = document.querySelector('#nature-name');
+  const natureTable = document.querySelector('.natures-table');
+  const natureNameInput = document.querySelector('#nature-name');
 
-  let filterByName = function(input) {
-    let query = input.toUpperCase();
-    let natures = natureTable.querySelectorAll('tbody tr');
+  const filterByName = function(input) {
+    const query = input.toUpperCase();
+    const natures = Array.from(natureTable.querySelectorAll('tbody tr'));
 
-    for (let i = 0; i < natures.length; i++) {
-      let natureName = natures[i].getElementsByTagName('td')[0];
+    const queryResults = natures.reduce((results, nature) => {
+      const natureName = nature.querySelector('td').textContent.toUpperCase();
 
-      if (natureName) {
-        if (natureName.innerHTML.toUpperCase().indexOf(query) > -1) {
-          natures[i].style.display = '';
-        } else {
-          natures[i].style.display = 'none';
-        }
+      if (natureName.includes(query)) {
+        results.matching.push(nature);
+      } else {
+        results.notMatching.push(nature);
       }
 
-      // @TODO: Add 'No results found'.
+      return results;
+    }, {
+      matching: [],
+      notMatching: []
+    });
+
+    queryResults.matching.forEach(match => match.style.display = '');
+    queryResults.notMatching.forEach(nonMatch => nonMatch.style.display = 'none');
+
+    let noMatchText = document.querySelector('p.no-match-found');
+    if (!queryResults.matching.length) {
+      // No results found - show 'no results' text & hide table.
+      if (!noMatchText) {
+        noMatchText = document.createElement('p');
+        noMatchText.classList.add('no-match-found');
+        document.querySelector('main').appendChild(noMatchText);
+      }
+
+      noMatchText.textContent = `No nature containing "${input}" exists.`;
+      noMatchText.style.display = '';
+      natureTable.style.display = 'none';
+    } else {
+      // At least one match - show table, hide 'no results'.
+      natureTable.style.display = '';
+
+      if (noMatchText) {
+        noMatchText.style.display = 'none';
+      }
     }
   };
 
@@ -31,9 +56,9 @@
   });
 
   if (window.location.hash) {
-    let query = window.location.hash.substr(1);
+    const query = window.location.hash.substr(1);
     natureNameInput.value = query;
-    let e = new Event('keyup');
+    const e = new Event('keyup');
     natureNameInput.dispatchEvent(e);
   }
 })();
