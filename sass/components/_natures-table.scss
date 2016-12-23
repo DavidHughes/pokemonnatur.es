@@ -1,13 +1,58 @@
 .natures-table {
   margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+
+  td, td, th {
+    padding: 0.5em;
+    border: 0;
+  }
+
+  @media screen and (min-width: $breakpoint-small) {
+    max-width: 35vw;
+  }
+
+  tr {
+    border-bottom: 1px dashed $brand-primary-bg-color;
+  }
+
+  .nature {
+    border-left: 1px dashed $brand-primary-bg-color;
+  }
+
+  .nerf {
+    border-right: 1px dashed $brand-primary-bg-color;
+  }
+
+
+  thead {
+    border-top: 2px solid $brand-primary-bg-color;
+    tr {
+      border-bottom-style: solid;
+      border-bottom-width: 2px;
+    }
+    .nature {
+      border-left-style: solid;
+      border-left-width: 2px;
+    }
+    .nerf {
+      border-right-style: solid;
+      border-left-width: 2px;
+    }
+  }
 }
 
 .natures-table__nature {
   width: 30%;
+  text-align: center;
 }
 
 .natures-table__stat {
   width: 35%;
+
+  // tbody & {
+    text-align: right;
+  // }
 }
 
 .no-match-found {

@@ -1,4 +1,4 @@
-.stat-icon::before {
+.stat-icon::after {
   font-size: 0.75em;
   vertical-align: middle;
   font-family: 'Consolas';
@@ -7,22 +7,22 @@
   text-align: center;
 }
 
-[data-stat=atk]::before {
+[data-stat=atk]::after {
   content: "▲";
 }
 
-[data-stat=def]::before {
+[data-stat=def]::after {
   content: "◼";
 }
 
-[data-stat=spa]::before {
+[data-stat=spa]::after {
   content: "♥";
 }
 
-[data-stat=spdef]::before {
+[data-stat=spdef]::after {
   content: "★";
 }
 
-[data-stat=spd]::before {
+[data-stat=spd]::after {
   content: "◆";
 }
