@@ -58,6 +58,8 @@
     filterByName(natureNameInput.value);
   });
 
+  natureNameInput.focus();
+
   if (window.location.hash) {
     natureNameInput.value = window.location.hash.substr(1);;
     natureNameInput.dispatchEvent(new Event('keyup'));
